@@ -1,4 +1,4 @@
-# Spotify Guess Game 🎵🍻
+# Spotify Guessing Game 🎵🍻
 
 A fun, interactive game where players guess which Spotify playlist a song belongs to. Perfect for parties and casual get-togethers!
 
