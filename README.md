@@ -67,9 +67,6 @@ Project Roadmap
         Develop a game screen after a playlist is selected.
         Present songs from the playlist and let users guess specific details (e.g., artist, song title).
 
-    Dark Mode Support
-        Implement a toggle for dark mode using TailwindCSS.
-
     Improved UI/UX
         Add animations and transitions for a more dynamic experience.
         Enhance visual feedback for interactions.
