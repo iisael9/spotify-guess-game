@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Spotify Guess Game 🎵🍻
 
-## Getting Started
+A fun, interactive game where players guess which Spotify playlist a song belongs to. Perfect for parties and casual get-togethers!
 
-First, run the development server:
+## **Project Status**
+- **Current Phase**: Core functionality (Spotify API integration and game logic)
+- **Next Steps**: Real-time room creation, guessing logic, and scoring system.
 
+---
+
+## **Features**
+- Authenticate with Spotify.
+- Add your playlists to a shared game room.
+- Guess the owner of the currently playing song.
+- Score points for correct guesses.
+
+---
+
+## **Setup Instructions**
+
+### **1. Prerequisites**
+- [Node.js](https://nodejs.org/) (v14.18.0 or higher)
+- [Git](https://git-scm.com/)
+- A Spotify Developer Account
+
+---
+
+### **2. Clone the Repository**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+git clone https://github.com/your-username/spotify-guess-game.git
+cd spotify-guess-game
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Project Roadmap
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+    Spotify Authentication
+        Authenticate users and fetch their playlists. ✅
+    Game Room
+        Allow players to join and share playlists.
+    Song Guessing Logic
+        Shuffle and play songs, collect guesses.
+    Scoring and Leaderboard
+        Track points and display rankings.
+    Styling and UI Enhancements
+        Add responsive design and animations.
+    Deploy to Production
+        Host the app on Vercel.
