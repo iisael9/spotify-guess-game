@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 interface Playlist {
@@ -12,6 +13,7 @@ export default function Home() {
   const [playlists, setPlaylists] = useState<Playlist[]>([]);
   const [selectedPlaylist, setSelectedPlaylist] = useState<Playlist | null>(null);
   const [error, setError] = useState(false);
+  const [roomCode, setRoomCode] = useState(""); // For joining a room
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -69,14 +71,13 @@ export default function Home() {
                 <button
                   key={playlist.id}
                   onClick={() => handlePlaylistSelection(playlist)}
-                  className={`bg-white p-4 rounded-lg shadow hover:shadow-md border ${
-                    selectedPlaylist?.id === playlist.id
+                  className={`bg-white p-4 rounded-lg shadow hover:shadow-md border ${selectedPlaylist?.id === playlist.id
                       ? "border-indigo-500"
                       : "border-gray-200"
-                  }`}
+                    }`}
                 >
                   <img
-                    src={playlist.image} // Access the `image` property
+                    src={playlist.image}
                     alt={playlist.name}
                     className="w-32 h-32 object-cover rounded-lg"
                   />
@@ -104,6 +105,33 @@ export default function Home() {
               >
                 View on Spotify
               </a>
+
+              {/* Game Room Actions */}
+              <div className="mt-8">
+                <Link href={`/GameRoom?playlistId=${selectedPlaylist.id}`}>
+                  <button className="bg-indigo-500 text-white px-6 py-3 rounded-lg hover:bg-indigo-600">
+                    Create Game Room
+                  </button>
+                </Link>
+              </div>
+
+              <div className="mt-4">
+                <input
+                  type="text"
+                  placeholder="Enter Room Code"
+                  value={roomCode}
+                  onChange={(e) => setRoomCode(e.target.value)}
+                  className="border rounded-lg px-4 py-2 w-60"
+                />
+                <Link href={`/GameRoom?roomCode=${roomCode}`}>
+                  <button
+                    className="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 ml-4"
+                    disabled={!roomCode}
+                  >
+                    Join Game Room
+                  </button>
+                </Link>
+              </div>
             </div>
           )}
         </div>

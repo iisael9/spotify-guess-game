@@ -1,0 +1,140 @@
+Game Logic
+Objective
+
+Players guess whose playlist(s) a song belongs to, earning or losing points based on their guesses.
+Scoring
+
+    Correct Guess:
+        +1 point for each correct player guessed.
+    Incorrect Guess:
+        -1 point for each incorrect player guessed.
+    "Only in My Playlist" Guess:
+        +1 point if correct, -1 if wrong.
+
+Gameplay Rules
+
+    Mandatory Guesses:
+        All players must make at least one guess per round.
+    No Repeated Songs:
+        Songs are unique across all rounds.
+    Playlist Randomization:
+        Songs are randomly chosen from contributed playlists.
+        No single player’s playlist can dominate (max two consecutive selections).
+    Dynamic Playback:
+        Playback modes:
+            Individual Playback: Songs play on each player's device.
+            Host-Controlled Playback: Songs play via the host’s Spotify session.
+
+App Flow
+1. Room Setup
+
+    Host Creates the Room:
+        Enters game settings:
+            Playback Mode:
+                Individual Playback: Each player hears the song on their device.
+                Host-Controlled Playback: Song plays on the host’s Spotify session.
+            Number of rounds.
+            Optional features:
+                Auto-Transition to next round.
+                Replay song until host transitions manually.
+
+    Host Shares Room Code:
+        Room code is generated.
+        Players join by entering the code.
+
+2. Player Join
+
+    Players enter the room code to join.
+    Each player connects their Spotify account and selects a playlist to contribute.
+    Host starts the game after all players are ready.
+
+3. Gameplay
+
+    Round Start:
+        A song is selected randomly from the pool of contributed playlists.
+        Song playback begins:
+            Individual Playback: Each player hears the song on their device.
+            Host-Controlled Playback: All players hear the song via the host’s Spotify.
+
+    Guess Submission:
+        Players guess whose playlist(s) the song belongs to.
+        Options:
+            Select one or multiple players.
+            Select "Only in My Playlist" if they believe it belongs solely to them.
+        All guesses must be submitted before moving to the next phase.
+
+    Score Reveal:
+        After all guesses are submitted:
+            Correct answers are revealed.
+            Scores are updated:
+                Correct guesses: +1 point per correct player guessed.
+                Incorrect guesses: -1 point per incorrect player guessed.
+                "Only in My Playlist": +1 if correct, -1 if wrong.
+            The leaderboard is displayed.
+
+    Round Transition:
+        Host Controls:
+            Replay song.
+            Advance to the next round.
+            Enable/disable auto-transition.
+            Switch between playback modes (if necessary).
+        Automatic Transition: If enabled, the game moves to the next round after a short delay.
+
+4. Game End
+
+    After the set number of rounds:
+        The final leaderboard is displayed.
+        Players can choose to:
+            Replay the game.
+            Exit the session.
+
+Host Capabilities and Controls
+Host Responsibilities:
+
+    Create the Room:
+        Set up game rules and settings.
+        Share the room code.
+
+    Manage Playback:
+        Choose playback mode (Individual or Host-Controlled).
+        Replay or skip songs.
+        Enable/disable auto-transition.
+
+    Start and Control Rounds:
+        Initiate each round.
+        Ensure all players submit guesses.
+        Display scores and advance to the next round.
+
+    Monitor Game Flow:
+        Ensure fair gameplay.
+        Handle room settings (e.g., switching playback modes, pausing songs).
+
+Example Scenario
+Room Setup:
+
+    Host: Alice
+    Players: Bob, Charlie, Dana
+    Playback Mode: Host-Controlled Playback
+    Rounds: 3
+    Auto-Transition: Disabled
+
+Round 1:
+
+    Song: Song A (Belongs to Alice’s playlist).
+    Playback: Song plays via Alice’s Spotify session.
+    Guesses:
+        Alice: Guesses "Only in My Playlist."
+        Bob: Guesses "Alice."
+        Charlie: Guesses "Alice and Dana."
+        Dana: Guesses "Alice."
+    Score Calculation:
+        Alice: +1 (Correct "Only in My Playlist").
+        Bob: +1 (Correctly guessed "Alice").
+        Charlie: -1 (Incorrectly guessed "Dana").
+        Dana: +1 (Correctly guessed "Alice").
+    Leaderboard:
+
+1. Alice: 1 point
+2. Bob: 1 point
+3. Dana: 1 point
+4. Charlie: -1 point
