@@ -28,9 +28,15 @@ export default function Home() {
           return res.json();
         })
         .then((data) => {
-          setPlaylists(data.playlists);
+          // Ensure playlists have a valid image
+          const updatedPlaylists = data.playlists.map((playlist: Playlist) => ({
+            ...playlist,
+            image: playlist.image || "/placeholder-image.jpg", // Use a placeholder if no image exists
+          }));
+          setPlaylists(updatedPlaylists);
+
           // Automatically set "Your Top Songs 2024" as the default selection
-          const defaultPlaylist = data.playlists.find(
+          const defaultPlaylist = updatedPlaylists.find(
             (playlist: Playlist) =>
               playlist.name.toLowerCase() === "your top songs 2024"
           );
@@ -70,9 +76,9 @@ export default function Home() {
                   }`}
                 >
                   <img
-                    src={playlist.image}
+                    src={playlist.image} // Access the `image` property
                     alt={playlist.name}
-                    className="w-full h-48 object-cover rounded-lg"
+                    className="w-32 h-32 object-cover rounded-lg"
                   />
                   <h3 className="mt-4 text-lg font-semibold">{playlist.name}</h3>
                 </button>
